@@ -1,1 +1,35 @@
-<p>header works!</p>
+<div
+  fxLayout="row"
+  fxLayout.xs="column"
+  fxLayoutWrap
+  fxLayoutAlign="space-between center"
+>
+  <div fxFlex=10%></div>
+  <app-search-bar
+    fxLayout="row wrap"
+    fxFlex="70%"
+    fxLayoutWrap
+    fxLayoutGap=".5rem"
+    fxLayoutAlign="start center"
+    (toggleSettings)="onToggleSettings($event)"
+  ></app-search-bar>
+  <div fxFlex=20% fxLayoutAlign="end" fxFlexAlign="center">Login</div>
+</div>
+<div
+  *ngIf="opened"
+  fxLayout="row"
+  fxLayout.xs="column"
+  fxLayoutWrap
+  fxLayoutAlign="space-between center"
+>
+  <div fxFlex=10%></div>
+  <app-search-settings
+    fxLayout="row"
+    fxLayout.lt-md="column"
+    fxFlex="70%"
+    fxLayoutWrap
+    fxLayoutGap=".5rem"
+    fxLayoutAlign="start"
+  ></app-search-settings>
+  <div fxFlex=20%></div>
+</div>

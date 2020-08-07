@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-bar',
@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class SearchBarComponent {
 
-  constructor() { }
+  @Output() public toggleSettings: EventEmitter<boolean> = new EventEmitter();
 
+  public opened: boolean = false;
+
+  public onToggleSettings(): void {
+    this.opened = !this.opened;
+    this.toggleSettings.emit(this.opened);
+  }
 }

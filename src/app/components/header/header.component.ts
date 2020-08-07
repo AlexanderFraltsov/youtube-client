@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  public opened: boolean;
 
-  constructor() { }
+  public onToggleSettings(opened: boolean): void {
+    this.opened = opened;
+  }
 }

@@ -1,1 +1,23 @@
-<p>search-bar works!</p>
+<img src="../../../assets/logo.png" alt="logo">
+<mat-form-field
+  fxFlex.gt-xs="50"
+  fxFlex.xs="100"
+>
+  <mat-label>What do you want to find out?</mat-label>
+  <input matInput placeholder="grumpy cat" type="search" >
+</mat-form-field>
+<button
+  class="stuck"
+  color="primary"
+  mat-raised-button
+>Search</button>
+
+
+<button
+  color="primary"
+  mat-raised-button
+  aria-label="Settings"
+  (click)="onToggleSettings()"
+>
+  <mat-icon>tune</mat-icon>
+</button>

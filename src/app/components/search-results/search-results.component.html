@@ -1,1 +1,11 @@
-<p>search-results works!</p>
+<div
+  *ngFor="let card of cards"
+  fxFlex="25"
+  fxFlex.md="33"
+  fxFlex.sm="50"
+  fxFlex.xs="100"
+  fxLayout="column"
+  style="padding: 1rem;"
+>
+  <app-search-item [item]="card | cardToRender"></app-search-item>
+</div>
