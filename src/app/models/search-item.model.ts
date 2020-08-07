@@ -1,3 +1,4 @@
+import { ISearchItemStatistics } from './search-item-statistics.model';
 import { ISearchItemSnippet } from './search-item-snippet.model';
 
 export interface ISearchItem {
@@ -5,11 +6,5 @@ export interface ISearchItem {
   etag: string;
   id: string;
   snippet: ISearchItemSnippet;
-  statistics: {
-    viewCount: string,
-    likeCount: string,
-    dislikeCount: string,
-    favoriteCount: string,
-    commentCount: string
-  };
+  statistics: ISearchItemStatistics;
 }
