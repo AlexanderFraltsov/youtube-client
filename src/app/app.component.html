@@ -1,6 +1,7 @@
 <div class="root" fxFlex fxLayout="column" fxLayoutGap="10px" style="height:100vh">
   <app-header
     (toggleSettings)="onToggleSettings($event)"
+    (submit)="onSubmit($event)"
   ></app-header>
   <div
     *ngIf="searchSettingsOpened"
@@ -20,5 +21,8 @@
     ></app-search-settings>
     <div fxFlex=20%></div>
   </div>
-  <app-search-results fxLayout="row wrap"></app-search-results>
+  <app-search-results
+    *ngIf="isSearchSubmit"
+    fxLayout="row wrap"
+  ></app-search-results>
 </div>

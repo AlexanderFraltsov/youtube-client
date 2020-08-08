@@ -8,9 +8,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public readonly title: string = 'youtube-client';
 
+  public isSearchSubmit: boolean;
   public searchSettingsOpened: boolean;
 
   public onToggleSettings(opened: boolean): void {
     this.searchSettingsOpened = opened;
+  }
+  public onSubmit(isSubmit: boolean): void {
+    this.isSearchSubmit = isSubmit;
   }
 }
