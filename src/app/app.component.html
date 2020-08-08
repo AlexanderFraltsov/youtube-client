@@ -1,4 +1,24 @@
 <div class="root" fxFlex fxLayout="column" fxLayoutGap="10px" style="height:100vh">
-  <app-header></app-header>
+  <app-header
+    (toggleSettings)="onToggleSettings($event)"
+  ></app-header>
+  <div
+    *ngIf="searchSettingsOpened"
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayoutWrap
+    fxLayoutAlign="space-between center"
+  >
+    <div fxFlex=10%></div>
+    <app-search-settings
+      fxLayout="row"
+      fxLayout.lt-md="column"
+      fxFlex="70%"
+      fxLayoutWrap
+      fxLayoutGap=".5rem"
+      fxLayoutAlign="start"
+    ></app-search-settings>
+    <div fxFlex=20%></div>
+  </div>
   <app-search-results fxLayout="row wrap"></app-search-results>
 </div>

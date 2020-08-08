@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public readonly title: string = 'youtube-client';
+
+  public searchSettingsOpened: boolean;
+
+  public onToggleSettings(opened: boolean): void {
+    this.searchSettingsOpened = opened;
+  }
 }
