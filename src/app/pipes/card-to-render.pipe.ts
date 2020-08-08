@@ -15,7 +15,6 @@ export class CardToRenderPipe implements PipeTransform {
     const msInDay: number = 1000 * 3600 * 24;
     const daysDiff: number = (now - Date.parse(publishedAt)) / msInDay;
 
-    console.log(daysDiff);
     let borderColor: 'yellow' | 'green' | 'blue' | 'red' = 'yellow';
     if (daysDiff < 30) { borderColor = 'green'; }
     if (daysDiff < 7) { borderColor = 'blue'; }
@@ -33,5 +32,4 @@ export class CardToRenderPipe implements PipeTransform {
       borderColor
     };
   }
-
 }
