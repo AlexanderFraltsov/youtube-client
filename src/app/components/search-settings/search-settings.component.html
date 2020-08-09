@@ -1,1 +1,39 @@
-<p>search-settings works!</p>
+<div
+  fxLayout="row"
+  fxLayoutGap=".5rem"
+  fxLayoutAlign="start center"
+
+>
+  <div>Sorting by:</div>
+  <button
+    mat-button
+    (click) = "sort('date')"
+  >date
+    <mat-icon *ngIf="sortOptions !== null && sortOptions.sort === 'date'">
+      {{'arrow_drop_'+sortOptions.sortDirection}}
+    </mat-icon>
+  </button>
+  <button
+    mat-button
+    (click) = "sort('views')"
+  >count of views
+    <mat-icon *ngIf="sortOptions !== null && sortOptions.sort === 'views'">
+      {{'arrow_drop_'+sortOptions.sortDirection}}
+    </mat-icon>
+  </button>
+</div>
+<div
+  fxLayout="row"
+  fxLayoutGap=".5rem"
+  fxLayoutAlign="start center"
+>
+  <div>by word or sentence:</div>
+  <mat-form-field
+  >
+    <input
+      matInput
+      placeholder="includes..."
+      (input)="onChange($event)"
+    >
+  </mat-form-field>
+</div>

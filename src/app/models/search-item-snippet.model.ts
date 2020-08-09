@@ -7,12 +7,13 @@ export interface ISearchItemSnippet {
   description: string;
   thumbnails: { [key: string]: ISearchItemThumbnail };
   channelTitle: string;
-  tags: Array<string>;
+  tags: string[];
   categoryId: string;
   liveBroadcastContent: string;
   localized: {
     title: string;
     description: string;
   };
+  defaultLanguage?: string;
   defaultAudioLanguage: string;
 }

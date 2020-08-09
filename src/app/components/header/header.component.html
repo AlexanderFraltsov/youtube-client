@@ -1,1 +1,15 @@
-<p>header works!</p>
+<div
+  fxLayout="row"
+  fxLayout.xs="column"
+  fxLayoutWrap
+  fxLayoutAlign="space-between center"
+>
+  <div fxFlex=10%></div>
+  <app-search-bar
+    fxFlex="70%"
+    (toggleSettings)="onToggleSettings($event)"
+    (submit)="onSubmit($event)"
+  ></app-search-bar>
+  <div fxFlex=20% fxLayoutAlign="end" fxFlexAlign="center">Login</div>
+</div>
+

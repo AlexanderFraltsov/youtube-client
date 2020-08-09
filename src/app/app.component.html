@@ -1,3 +1,32 @@
-<div class="root">
-  {{title}}
+<div class="root" fxFlex fxLayout="column" fxLayoutGap="10px" style="height:100vh">
+  <app-header
+    (toggleSettings)="onToggleSettings($event)"
+    (submit)="onSubmit($event)"
+  ></app-header>
+  <div
+    *ngIf="searchSettingsOpened"
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayoutWrap
+    fxLayoutAlign="space-between center"
+  >
+    <div fxFlex=10%></div>
+    <app-search-settings
+      fxLayout="row"
+      fxLayout.lt-md="column"
+      fxFlex="70%"
+      fxLayoutWrap
+      fxLayoutGap=".5rem"
+      fxLayoutAlign="start"
+      (filterChange)="onFilterChange($event)"
+      (sortChange)="onSortChange($event)"
+    ></app-search-settings>
+    <div fxFlex=20%></div>
+  </div>
+  <app-search-results
+    *ngIf="isSearchSubmit"
+    fxLayout="row wrap"
+    [filter]="filter"
+    [sortOptions]="sortOptions"
+  ></app-search-results>
 </div>

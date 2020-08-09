@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ICardRender } from './../../models/card-render.model';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-search-item',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-item.component.scss']
 })
 export class SearchItemComponent {
+  @Input() public item: ICardRender;
 
   constructor() { }
-
 }

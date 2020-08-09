@@ -1,1 +1,36 @@
-<p>search-bar works!</p>
+<form
+  fxLayout="row wrap"
+  fxLayoutWrap
+  fxLayoutGap=".5rem"
+  fxLayoutAlign="start center"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+>
+  <img src="./assets/logo.png" alt="logo">
+  <mat-form-field
+    fxFlex.gt-xs="50"
+    fxFlex.xs="100"
+  >
+    <mat-label>What do you want to find out?</mat-label>
+    <input
+      matInput
+      placeholder="grumpy cat"
+      type="search"
+      formControlName='searchString'>
+  </mat-form-field>
+  <button
+    class="stuck"
+    color="primary"
+    type="submit"
+    mat-raised-button
+  >Search</button>
+  <button
+    color="primary"
+    type="button"
+    mat-raised-button
+    (click)="onToggleSettings()"
+  >
+    <mat-icon>tune</mat-icon>
+  </button>
+</form>
+

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  @Output() public toggleSettings: EventEmitter<boolean> = new EventEmitter();
+  @Output() public submit: EventEmitter<boolean> = new EventEmitter();
 
-  constructor() { }
+  public onToggleSettings(opened: boolean): void {
+    this.toggleSettings.emit(opened);
+  }
+
+  public onSubmit(submit: boolean): void {
+    this.submit.emit(submit);
+  }
 }
