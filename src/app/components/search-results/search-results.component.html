@@ -1,5 +1,5 @@
 <div
-  *ngFor="let card of cards"
+  *ngFor="let card of cards | filterCards: filter"
   fxFlex="25"
   fxFlex.md="33"
   fxFlex.sm="50"

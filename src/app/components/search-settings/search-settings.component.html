@@ -16,6 +16,10 @@
   <div>by word or sentence:</div>
   <mat-form-field
   >
-    <input matInput placeholder="includes...">
+    <input
+      (input)="onChange($event)"
+      matInput
+      placeholder="includes..."
+    >
   </mat-form-field>
 </div>

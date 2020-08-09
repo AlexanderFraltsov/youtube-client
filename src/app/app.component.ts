@@ -10,11 +10,17 @@ export class AppComponent {
 
   public isSearchSubmit: boolean;
   public searchSettingsOpened: boolean;
+  public filter: string = '';
 
   public onToggleSettings(opened: boolean): void {
     this.searchSettingsOpened = opened;
   }
+
   public onSubmit(isSubmit: boolean): void {
     this.isSearchSubmit = isSubmit;
+  }
+
+  public onFilterChange(filter: string): void {
+    this.filter = filter;
   }
 }

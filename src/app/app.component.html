@@ -18,11 +18,13 @@
       fxLayoutWrap
       fxLayoutGap=".5rem"
       fxLayoutAlign="start"
+      (filterChange)="onFilterChange($event)"
     ></app-search-settings>
     <div fxFlex=20%></div>
   </div>
   <app-search-results
     *ngIf="isSearchSubmit"
     fxLayout="row wrap"
+    [filter]="filter"
   ></app-search-results>
 </div>

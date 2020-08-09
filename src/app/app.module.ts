@@ -18,6 +18,7 @@ import { SearchSettingsComponent } from './components/search-settings/search-set
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardToRenderPipe } from './pipes/card-to-render.pipe';
 import { CardColorDirective } from './directives/card-color.directive';
+import { FilterCardsPipe } from './pipes/filter-cards.pipe';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CardColorDirective } from './directives/card-color.directive';
     SearchSettingsComponent,
     CardToRenderPipe,
     CardColorDirective,
+    FilterCardsPipe,
   ],
   imports: [
     BrowserModule,
