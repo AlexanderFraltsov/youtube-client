@@ -1,3 +1,4 @@
+import { ISortOptions } from './../../models/sort-options.model';
 import { ISearchItem } from './../../models/search-item.model';
 import { YoutubeService } from './../../services/youtube.service';
 import { Component, OnInit, Input } from '@angular/core';
@@ -9,6 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SearchResultsComponent implements OnInit {
   @Input() public filter: string;
+  @Input() public sortOptions: ISortOptions;
 
   public cards: ISearchItem[];
   constructor(private youtubeService: YoutubeService) { }

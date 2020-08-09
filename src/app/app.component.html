@@ -19,6 +19,7 @@
       fxLayoutGap=".5rem"
       fxLayoutAlign="start"
       (filterChange)="onFilterChange($event)"
+      (sortChange)="onSortChange($event)"
     ></app-search-settings>
     <div fxFlex=20%></div>
   </div>
@@ -26,5 +27,6 @@
     *ngIf="isSearchSubmit"
     fxLayout="row wrap"
     [filter]="filter"
+    [sortOptions]="sortOptions"
   ></app-search-results>
 </div>

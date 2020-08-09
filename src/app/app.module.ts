@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardToRenderPipe } from './pipes/card-to-render.pipe';
 import { CardColorDirective } from './directives/card-color.directive';
 import { FilterCardsPipe } from './pipes/filter-cards.pipe';
+import { SortCardsPipe } from './pipes/sort-cards.pipe';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FilterCardsPipe } from './pipes/filter-cards.pipe';
     CardToRenderPipe,
     CardColorDirective,
     FilterCardsPipe,
+    SortCardsPipe,
   ],
   imports: [
     BrowserModule,

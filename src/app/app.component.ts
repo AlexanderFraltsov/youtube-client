@@ -1,3 +1,4 @@
+import { ISortOptions } from './models/sort-options.model';
 import { Component } from '@angular/core';
 
 @Component({
@@ -11,6 +12,7 @@ export class AppComponent {
   public isSearchSubmit: boolean;
   public searchSettingsOpened: boolean;
   public filter: string = '';
+  public sortOptions: ISortOptions = null;
 
   public onToggleSettings(opened: boolean): void {
     this.searchSettingsOpened = opened;
@@ -22,5 +24,8 @@ export class AppComponent {
 
   public onFilterChange(filter: string): void {
     this.filter = filter;
+  }
+  public onSortChange(sortOptions: ISortOptions): void {
+    this.sortOptions = sortOptions;
   }
 }
