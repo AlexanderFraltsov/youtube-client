@@ -1,10 +1,7 @@
 <div class="root" fxFlex fxLayout="column" fxLayoutGap="10px" style="height:100vh">
-  <app-header
-    (toggleSettings)="onToggleSettings($event)"
-    (submit)="onSubmit($event)"
-  ></app-header>
+  <app-header></app-header>
   <div
-    *ngIf="searchSettingsOpened"
+    *ngIf="commonService.isSearchOptionsOpen"
     fxLayout="row"
     fxLayout.xs="column"
     fxLayoutWrap
@@ -18,15 +15,12 @@
       fxLayoutWrap
       fxLayoutGap=".5rem"
       fxLayoutAlign="start"
-      (filterChange)="onFilterChange($event)"
-      (sortChange)="onSortChange($event)"
     ></app-search-settings>
     <div fxFlex=20%></div>
   </div>
   <app-search-results
-    *ngIf="isSearchSubmit"
+    *ngIf="commonService.isSearchSubmit"
     fxLayout="row wrap"
-    [filter]="filter"
-    [sortOptions]="sortOptions"
   ></app-search-results>
+  <router-outlet></router-outlet>
 </div>

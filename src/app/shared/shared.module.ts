@@ -1,4 +1,8 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,7 +24,19 @@ const materialComponents: Array<MatButtonModule> = [
 ];
 
 @NgModule({
-  imports: [materialComponents],
-  exports: [materialComponents]
+  declarations: [],
+  imports: [
+    CommonModule,
+    materialComponents,
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  exports: [
+    materialComponents,
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule
+  ]
 })
-export class MaterialModule { }
+export class SharedModule { }

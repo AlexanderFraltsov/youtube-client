@@ -2,23 +2,22 @@
   fxLayout="row"
   fxLayoutGap=".5rem"
   fxLayoutAlign="start center"
-
 >
   <div>Sorting by:</div>
   <button
     mat-button
     (click) = "sort('date')"
   >date
-    <mat-icon *ngIf="sortOptions !== null && sortOptions.sort === 'date'">
-      {{'arrow_drop_'+sortOptions.sortDirection}}
+    <mat-icon *ngIf="sortType === 'date'">
+      {{sortDirectionIcon}}
     </mat-icon>
   </button>
   <button
     mat-button
     (click) = "sort('views')"
   >count of views
-    <mat-icon *ngIf="sortOptions !== null && sortOptions.sort === 'views'">
-      {{'arrow_drop_'+sortOptions.sortDirection}}
+    <mat-icon *ngIf="sortType === 'views'">
+      {{sortDirectionIcon}}
     </mat-icon>
   </button>
 </div>
@@ -33,7 +32,7 @@
     <input
       matInput
       placeholder="includes..."
-      (input)="onChange($event)"
+      (input)="youtubeService.onChangeFilter($event)"
     >
   </mat-form-field>
 </div>
