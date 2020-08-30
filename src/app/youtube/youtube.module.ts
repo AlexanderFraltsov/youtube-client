@@ -10,6 +10,7 @@ import { CardToRenderPipe } from './pipes/card-to-render.pipe';
 import { SortCardsPipe } from './pipes/sort-cards.pipe';
 import { CardColorDirective } from './directives/card-color.directive';
 import { SharedModule } from '../shared/shared.module';
+import { MainComponent } from './pages/main/main.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SharedModule } from '../shared/shared.module';
     FilterCardsPipe,
     SortCardsPipe,
     CardColorDirective,
+    MainComponent,
   ],
   imports: [
     CommonModule,

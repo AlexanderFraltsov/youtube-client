@@ -5,11 +5,13 @@ import { SharedModule } from '../shared/shared.module';
 
 import { HeaderComponent } from './components/header/header.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule,
