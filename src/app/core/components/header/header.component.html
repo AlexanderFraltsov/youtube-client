@@ -8,6 +8,14 @@
   <app-search-bar
     fxFlex="70%"
   ></app-search-bar>
-  <div fxFlex=20% fxLayoutAlign="end" fxFlexAlign="center">Login</div>
+  <div fxFlex=20% fxLayoutAlign="end center" fxFlexAlign="center" class="user-info">
+    {{loginService.userName}}
+    <mat-icon color="primary">account_box</mat-icon>
+    <ng-container *ngIf="loginService.isLogined">
+      <button mat-raised-button color="primary" (click)="loginService.logout()">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </ng-container>
+  </div>
 </div>
 

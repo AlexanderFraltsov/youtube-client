@@ -8,6 +8,7 @@ export class CommonService {
   public isSearchSubmit: boolean = false;
   public isSearchOptionsOpen: boolean = false;
 
+  constructor() {}
   public onSubmit(data: string): void {
     this.isSearchSubmit = true;
     console.log('submit: ', data);

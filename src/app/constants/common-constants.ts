@@ -12,8 +12,11 @@ const TIME_PERIODS: {
   MEDIUM: { DAYS: 30, COLOR: COLORS.GREEN},
   LONG: { DAYS: 6 * 30, COLOR: COLORS.RED},
 };
+// tslint:disable-next-line: no-inferrable-types
+const USERNAME_PLACEHOLDER: string = 'Who are you?';
 
 export {
   MS_IN_DAY,
-  TIME_PERIODS
+  TIME_PERIODS,
+  USERNAME_PLACEHOLDER
 };
