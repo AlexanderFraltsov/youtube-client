@@ -5,7 +5,6 @@ import { SharedModule } from '../shared/shared.module';
 import { CardColorDirective } from './directives/card-color.directive';
 
 import { FilterCardsPipe } from './pipes/filter-cards.pipe';
-import { CardToRenderPipe } from './pipes/card-to-render.pipe';
 import { SortCardsPipe } from './pipes/sort-cards.pipe';
 
 import { SearchSettingsComponent } from './components/search-settings/search-settings.component';
@@ -14,6 +13,7 @@ import { CreateCardComponent } from './components/create-card/create-card.compon
 import { SearchItemComponent } from './components/search-item/search-item.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { MainComponent } from './pages/main/main.component';
+import { DetailsComponent } from './pages/details/details.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -23,18 +23,18 @@ import { RouterModule } from '@angular/router';
     CreateCardComponent,
     CardBigComponent,
     SearchSettingsComponent,
-    CardToRenderPipe,
     FilterCardsPipe,
     SortCardsPipe,
     CardColorDirective,
     MainComponent,
+    DetailsComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     RouterModule.forChild([
       { path: '', component: MainComponent },
-      { path: ':id', component: CardBigComponent },
+      { path: ':id', component: DetailsComponent },
     ])
   ],
   exports: [

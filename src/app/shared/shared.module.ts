@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { CardToRenderPipe } from './pipes/card-to-render.pipe';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,7 +25,9 @@ const materialComponents: Array<MatButtonModule> = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CardToRenderPipe
+  ],
   imports: [
     CommonModule,
     materialComponents,
@@ -36,7 +39,8 @@ const materialComponents: Array<MatButtonModule> = [
     materialComponents,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CardToRenderPipe
   ]
 })
 export class SharedModule { }
