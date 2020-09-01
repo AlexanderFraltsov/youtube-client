@@ -20,7 +20,8 @@ import { ErrorComponent } from './components/error/error.component';
   ],
   exports: [
     HeaderComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    ErrorComponent
   ]
 })
 export class CoreModule { }

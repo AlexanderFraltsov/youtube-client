@@ -1,5 +1,5 @@
 import { FormGroup, FormControl } from '@angular/forms';
-import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../../services/common.service';
 
 @Component({
@@ -9,10 +9,7 @@ import { CommonService } from '../../services/common.service';
 })
 export class SearchBarComponent implements OnInit {
 
-  @Output() public toggleSettings: EventEmitter<boolean> = new EventEmitter();
-
   public form: FormGroup;
-  public opened: boolean = false;
 
   constructor( public commonService: CommonService) {}
 
