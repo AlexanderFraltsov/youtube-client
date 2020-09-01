@@ -1,3 +1,4 @@
+import { LoginService } from './../../services/login.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +8,6 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
-  constructor() { }
+  constructor(public loginService: LoginService) { }
 
 }
