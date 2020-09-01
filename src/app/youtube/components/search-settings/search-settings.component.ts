@@ -17,11 +17,15 @@ export class SearchSettingsComponent {
 
   public sort(sortType: SortType): void {
     this.youtubeService.sort(sortType);
-    this.sortDirectionIcon = (
-      <DirectionIcon>`arrow_drop_${(
-        this.youtubeService.sortOptions.sortDirection
-      )}`
-    );
-    this.sortType = this.youtubeService.sortOptions.sort;
+    if (this.youtubeService.sortOptions !== null) {
+      this.sortType = this.youtubeService.sortOptions.sort;
+      this.sortDirectionIcon = (
+        <DirectionIcon>`arrow_drop_${(
+          this.youtubeService.sortOptions.sortDirection
+        )}`
+      );
+    } else {
+      this.sortType = null;
+    }
   }
 }

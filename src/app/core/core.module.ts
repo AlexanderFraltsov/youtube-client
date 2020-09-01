@@ -1,4 +1,3 @@
-import { YoutubeModule } from './../youtube/youtube.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
@@ -15,8 +14,7 @@ import { ErrorComponent } from './components/error/error.component';
   ],
   imports: [
     CommonModule,
-    SharedModule,
-    YoutubeModule
+    SharedModule
   ],
   exports: [
     HeaderComponent,

@@ -13,6 +13,6 @@ export class SearchItemComponent {
   constructor(public router: Router) { }
 
   public goToDetailedInfo(id: string): void {
-    this.router.navigate(['detailed', id]);
+    this.router.navigate(['main', id]);
   }
 }
