@@ -16,6 +16,6 @@
   </mat-card-content>
   <mat-card-title>{{item.title}}</mat-card-title>
   <mat-card-actions fxLayout="row-wrap" fxLayoutAlign="center center">
-    <button mat-raised-button color="primary">more...</button>
+    <button mat-raised-button color="primary" (click)="goToDetailedInfo(item.id)">more...</button>
   </mat-card-actions>
 </mat-card>

@@ -6,7 +6,7 @@ import { LoginComponent } from './auth/components/login/login.component';
 import { ErrorComponent } from './core/components/error/error.component';
 
 const routes: Routes = [
-
+  { path: '',   redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'main', component: MainComponent },
   { path: 'detailed/:id', component: CardBigComponent },

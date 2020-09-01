@@ -1,1 +1,47 @@
-<p>card-big works!</p>
+<div class="card" fxLayout="row" fxLayoutAlign="center" fxLayout.lt-md="column">
+  <button
+    mat-raised-button
+    color="primary"
+    fxFlexAlign="start"
+    (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <img
+    class="card--image"
+    [src]="card.imageBig"
+    [alt]="card.description"
+    fxFlexAlign="center">
+  <div
+    class="card--info"
+    [appCardColor]="card.borderColor"
+    fxLayout="column"
+    fxLayoutAlign="start">
+    <div class="card--title" >
+      <h3 fxLayoutAlign="start">
+        {{card.title}}
+      </h3>
+      <p fxLayoutAlign="end">
+        {{card.publishedAt | date:'fullDate'}}
+      </p>
+    </div>
+    <div class="card--description" fxLayout="column">
+      <p>Description:</p>
+      <p class="description--text">{{card.description}}</p>
+    </div>
+    <div class="card--statistics" fxLayout="row"  fxLayoutAlign="center">
+      <div class="statistics--item">
+        <mat-icon>visibility</mat-icon>{{card.viewCount}}
+      </div>
+      <div class="statistics--item">
+        <mat-icon>thumb_up</mat-icon>{{card.likeCount}}
+      </div>
+      <div class="statistics--item">
+        <mat-icon>thumb_down</mat-icon>{{card.dislikeCount}}
+      </div>
+      <div class="statistics--item">
+        <mat-icon>comment</mat-icon>{{card.commentCount}}
+      </div>
+    </div>
+  </div>
+
+</div>
