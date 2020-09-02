@@ -1,8 +1,15 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html',
   styleUrls: ['./error.component.scss']
 })
-export class ErrorComponent {}
+export class ErrorComponent {
+  constructor(public router: Router) {}
+
+  public goToMain(): void {
+    this.router.navigate(['main']);
+  }
+}
