@@ -20,12 +20,6 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'youtube-client'`, () => {
-    const fixture: ComponentFixture<AppComponent> = TestBed.createComponent(AppComponent);
-    const app: AppComponent = fixture.componentInstance;
-    expect(app.title).toEqual('youtube-client');
-  });
-
   it('should render title', () => {
     const fixture: ComponentFixture<AppComponent> = TestBed.createComponent(AppComponent);
     fixture.detectChanges();

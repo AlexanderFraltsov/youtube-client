@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 3rem;
+  font-size: 5rem;
+  line-height: 5rem;
+}
+span {
+  font-size: 3rem;
+}
+a {
+  font-size: 1rem;
+  opacity: 0.5;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+}
+
