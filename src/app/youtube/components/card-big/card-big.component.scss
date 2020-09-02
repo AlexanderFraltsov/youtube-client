@@ -1,15 +1,33 @@
+$media1: 959px;
+$media2: 1300px;
+$common-max_height: 400px;
+$common_second-max_height: 300px;
+$skinny_screen-max_width: 90vw;
+$stats-min_height: 50px;
+$description-max_height: $common-max_height / 2;
+$description-margin_bottom: 20px;
+$common_padding: 2rem;
+$info_padding: $common_padding / 2;
+$stats_item-padding: $common_padding / 4;
+
+
+%height-changer {
+  max-height: $common-max_height;
+  @media (max-width: $media2) { max-height: $common_second-max_height; }
+  @media (max-width: $media1) {
+    max-height: unset;
+    max-width: $skinny_screen-max_width;
+  }
+}
+
 .card {
-  padding: 2rem;
+  padding: $common_padding;
   &--image {
-    max-height: 400px;
-    @media (max-width: 1300px) { max-height: 300px; }
-    @media (max-width: 959px) { max-height: unset; max-width: 90vw; }
+    @extend %height-changer;
   }
   &--info {
-    padding: 1rem;
-    max-height: 400px;
-    @media (max-width: 1300px) { max-height: 300px; }
-    @media (max-width: 959px) { max-height: unset; max-width: 90vw; }
+    padding: $info_padding;
+    @extend %height-changer;
   }
   &--title {
     h3 {
@@ -20,18 +38,18 @@
     }
   }
   &--statistics {
-    min-height: 50px;
+    min-height: $stats-min_height;
   }
   &--description {
-    max-height: 200px;
+    max-height: $description-max_height;
     overflow: auto;
-    margin-bottom: 20px;
-    @media (max-width: 959px) { max-height: unset;}
+    margin-bottom: $description-margin_bottom;
+    @media (max-width: $media1) { max-height: unset;}
   }
 }
 
 .statistics--item {
   display: flex;
   align-items: center;
-  padding-right: 0.5rem;
+  padding-right: $stats_item-padding;
 }

@@ -1,7 +1,8 @@
 import { YoutubeService } from './../../services/youtube.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ISearchItem } from './../../models/search-item.model';
 import { Component, OnInit } from '@angular/core';
+import { MAIN_ROUTE } from 'src/app/constants/common-constants';
 
 @Component({
   selector: 'app-details',
@@ -11,13 +12,21 @@ import { Component, OnInit } from '@angular/core';
 export class DetailsComponent implements OnInit {
   public id: string;
   public card: ISearchItem;
-  constructor( public route: ActivatedRoute, public youTubeService: YoutubeService ) {}
+  constructor(
+    public route: ActivatedRoute,
+    public youTubeService: YoutubeService,
+    private router: Router
+  ) {}
 
   public ngOnInit(): void {
     this.route.params.subscribe( params => {
       this.id = params.id;
     });
+
     this.card = this.youTubeService.getItemById(this.id);
+    if (!this.card) {
+      this.router.navigate([MAIN_ROUTE]);
+    }
   }
 
 }

@@ -1,18 +1,27 @@
 <mat-card
-  fxLayout="column"
   fxFlex="25"
   fxFlex.md="33"
   fxFlex.sm="50"
   fxFlex.xs="80"
 >
-  <mat-card-title>Login</mat-card-title>
-  <mat-form-field action="">
-    <mat-label>login</mat-label>
-    <input matInput type="text">
-  </mat-form-field>
-  <mat-form-field action="">
-    <mat-label>password</mat-label>
-    <input matInput type="password">
-  </mat-form-field>
-  <button mat-raised-button (click)="loginService.onLogin()">submit</button>
+  <form
+    fxLayout="column"
+    [formGroup]="authForm"
+    (ngSubmit)="submit()"
+  >
+    <mat-card-title>Login</mat-card-title>
+    <mat-form-field action="">
+      <mat-label>login</mat-label>
+      <input matInput type="text" formControlName="login">
+    </mat-form-field>
+    <mat-form-field action="">
+      <mat-label>password</mat-label>
+      <input matInput type="password" formControlName="password">
+    </mat-form-field>
+    <button
+      mat-raised-button
+      type="submit"
+      [disabled]="authForm.invalid"
+    >submit</button>
+  </form>
 </mat-card>

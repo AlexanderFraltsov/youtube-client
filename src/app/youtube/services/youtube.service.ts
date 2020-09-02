@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { ICardRender } from './../models/card-render.model';
 import { ISortOptions } from './../models/sort-options.model';
 import { ISearchItem } from './../models/search-item.model';
 import { ISearchResponse } from '../models/search-response.model';
 import { mockResponse } from './mock.response';
-import { MS_IN_DAY, TIME_PERIODS } from 'src/app/constants/common-constants';
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,7 @@
 import { ICardRender } from './../../models/card-render.model';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { MAIN_ROUTE } from 'src/app/constants/common-constants';
 
 @Component({
   selector: 'app-search-item',
@@ -13,6 +14,6 @@ export class SearchItemComponent {
   constructor(public router: Router) { }
 
   public goToDetailedInfo(id: string): void {
-    this.router.navigate(['main', id]);
+    this.router.navigate([MAIN_ROUTE, id]);
   }
 }
