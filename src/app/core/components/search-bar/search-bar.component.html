@@ -4,7 +4,6 @@
   fxLayoutGap=".5rem"
   fxLayoutAlign="start center"
   [formGroup]="form"
-  (ngSubmit)="onSubmit()"
 >
   <img src="./assets/logo.png" alt="logo">
   <mat-form-field
@@ -16,14 +15,9 @@
       matInput
       placeholder="grumpy cat"
       type="search"
-      formControlName='searchString'>
+      formControlName='searchString'
+      [readonly]="!isAuth">
   </mat-form-field>
-  <button
-    class="stuck"
-    color="primary"
-    type="submit"
-    mat-raised-button
-  >Search</button>
   <button
     color="primary"
     type="button"

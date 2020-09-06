@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
 
-  public isSearchSubmit: boolean = false;
+  public isLogin: Subject<boolean> = new Subject();
   public isSearchOptionsOpen: boolean = false;
 
   constructor() {}
-  public onSubmit(data: string): void {
-    this.isSearchSubmit = true;
-    console.log('submit: ', data);
-  }
 
   public onSearchOptionsToggle(): void {
     this.isSearchOptionsOpen = !this.isSearchOptionsOpen;
