@@ -15,7 +15,8 @@
       matInput
       placeholder="grumpy cat"
       type="search"
-      formControlName='searchString'>
+      formControlName='searchString'
+      [readonly]="!isAuth">
   </mat-form-field>
   <button
     color="primary"

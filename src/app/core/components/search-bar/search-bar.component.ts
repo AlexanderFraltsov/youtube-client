@@ -1,10 +1,12 @@
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CommonService } from '../../services/common.service';
-import { YoutubeResponseService } from 'src/app/youtube/services/youtube-response.service';
 import { Subscription } from 'rxjs';
 import { filter, debounceTime } from 'rxjs/operators';
-import { SEARCH_RESULTS, QUERY_MIN_LENGTH } from 'src/app/constants/common-constants';
+
+import { CommonService } from '../../services/common.service';
+import { YoutubeResponseService } from 'src/app/youtube/services/youtube-response.service';
+import { LoginService } from '../../../auth/services/login.service';
+import { QUERY_MIN_LENGTH } from 'src/app/constants/common-constants';
 
 @Component({
   selector: 'app-search-bar',
@@ -15,10 +17,12 @@ export class SearchBarComponent implements OnInit, OnDestroy {
 
   public form: FormGroup;
   public searchString: Subscription;
+  public isAuth: boolean;
 
   constructor(
     public commonService: CommonService,
-    public youtubeResponseService: YoutubeResponseService
+    private loginService: LoginService,
+    private youtubeResponseService: YoutubeResponseService
   ) {}
 
   public ngOnInit(): void {
@@ -36,6 +40,10 @@ export class SearchBarComponent implements OnInit, OnDestroy {
           this.youtubeResponseService.searchString.next(query);
         }
       );
+
+    this.loginService.isLogin.subscribe({
+      next: (res) => this.isAuth = res
+    });
   }
 
   public ngOnDestroy(): void {

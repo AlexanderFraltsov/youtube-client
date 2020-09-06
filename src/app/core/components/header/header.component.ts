@@ -7,5 +7,10 @@ import { LoginService } from 'src/app/auth/services/login.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor(public loginService: LoginService) {}
+  public isAuth: boolean;
+  constructor(public loginService: LoginService) {
+    this.loginService.isLogin.subscribe({
+      next: (res) => this.isAuth = res
+    });
+  }
 }

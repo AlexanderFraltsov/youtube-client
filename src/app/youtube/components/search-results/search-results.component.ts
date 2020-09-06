@@ -1,3 +1,4 @@
+import { QUERY_MIN_LENGTH } from 'src/app/constants/common-constants';
 import { CommonService } from './../../../core/services/common.service';
 import { ISearchItem } from './../../models/search-item.model';
 import { Component, OnInit } from '@angular/core';
@@ -20,7 +21,7 @@ export class SearchResultsComponent implements OnInit {
   public ngOnInit(): void {
     this.youtubeResponseService.searchString.subscribe({
         next: (query) => {
-          if (query.length > 2) {
+          if (query.length >= QUERY_MIN_LENGTH) {
             return this.getSearchItems(query);
           }
         }
