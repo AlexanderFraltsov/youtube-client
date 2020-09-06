@@ -16,9 +16,15 @@ const TIME_PERIODS: {
 const USERNAME_PLACEHOLDER: string = 'Who are you?';
 const LOGIN_MIN_LENGTH: number = 3;
 const PASSWORD_MIN_LENGTH: number = 6;
+
 const MAIN_ROUTE: string = 'main';
 const AUTH_ROUTE: string = 'login';
 const ERROR_ROUTE: string = '404';
+
+const QUERY_MIN_LENGTH: number = 3;
+const SEARCH_RESULTS: number = 15;
+const YOUTUBE_SEARCH_PATH: string = 'search';
+const YOUTUBE_VIDEOS_PATH: string = 'videos';
 
 export {
   MS_IN_DAY,
@@ -28,5 +34,9 @@ export {
   PASSWORD_MIN_LENGTH,
   MAIN_ROUTE,
   AUTH_ROUTE,
-  ERROR_ROUTE
+  ERROR_ROUTE,
+  YOUTUBE_SEARCH_PATH,
+  YOUTUBE_VIDEOS_PATH,
+  SEARCH_RESULTS,
+  QUERY_MIN_LENGTH
 };

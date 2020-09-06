@@ -13,7 +13,8 @@ export class CardToRenderPipe implements PipeTransform {
     const { publishedAt, description, title, thumbnails } = item.snippet;
     const { commentCount, dislikeCount, likeCount, viewCount } = item.statistics;
     const image: string = thumbnails.medium.url;
-    const imageBig: string = thumbnails.maxres.url;
+    const imageBig: string = thumbnails.maxres?.url || thumbnails.high?.url || thumbnails.default?.url ||
+    thumbnails.medium?.url || thumbnails.standard?.url;
     let borderColor: string | null = null;
     const daysDiff: number = (Date.now() - Date.parse(publishedAt)) / MS_IN_DAY;
 

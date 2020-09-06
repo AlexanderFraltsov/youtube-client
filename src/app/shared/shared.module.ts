@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Provider } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -12,6 +12,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { YoutubeInterceptor } from './interceptors/youtube.interceptor';
+
+const INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS, useClass: YoutubeInterceptor, multi: true
+};
 
 const materialComponents: Array<MatButtonModule> = [
   MatGridListModule,
@@ -33,14 +39,19 @@ const materialComponents: Array<MatButtonModule> = [
     materialComponents,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     materialComponents,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     CardToRenderPipe
+  ],
+  providers: [
+    INTERCEPTOR_PROVIDER
   ]
 })
 export class SharedModule { }
