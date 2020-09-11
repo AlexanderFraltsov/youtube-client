@@ -7,7 +7,7 @@ import { ISearchItem } from './../models/search-item.model';
 export class FilterCardsPipe implements PipeTransform {
 
   public transform(items: ISearchItem[], search: string = ''): ISearchItem[] {
-
+    if (!items) { return null; }
     if (!search.trim()) {
       return items;
     }

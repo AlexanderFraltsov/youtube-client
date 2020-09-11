@@ -11,10 +11,11 @@ export class SortCardsPipe implements PipeTransform {
     (item: ISearchItem): number => Date.parse(item.snippet.publishedAt)
 
   public getViews: (item: ISearchItem) => number =
-  (item: ISearchItem): number => +item.statistics.viewCount
+    (item: ISearchItem): number => +item.statistics.viewCount
 
   public transform(items: ISearchItem[], sortOptions: ISortOptions): ISearchItem[] {
 
+    if (!items) { return null; }
     if (sortOptions === null) { return items; }
     const directionModificator: 1 | -1 = (sortOptions.sortDirection === 'up') ? 1 : -1;
     const func: ( item: ISearchItem ) => number =
