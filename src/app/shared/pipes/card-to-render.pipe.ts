@@ -1,6 +1,6 @@
 
 import { Pipe, PipeTransform } from '@angular/core';
-import { ICardRender } from '../../youtube/models/card-render.model';
+import { ICardRender } from '../models/card-render.model';
 import { ISearchItem } from '../../youtube/models/search-item.model';
 import { TIME_PERIODS, MS_IN_DAY } from 'src/app/constants/common-constants';
 

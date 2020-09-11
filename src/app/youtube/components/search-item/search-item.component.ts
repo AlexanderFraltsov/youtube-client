@@ -1,4 +1,4 @@
-import { ICardRender } from './../../models/card-render.model';
+import { ICardRender } from '../../../shared/models/card-render.model';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MAIN_ROUTE } from 'src/app/constants/common-constants';
