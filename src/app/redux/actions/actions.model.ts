@@ -1,3 +1,2 @@
 import { UpdateCards } from './youtube.actions';
-
-export { UpdateCards };
+export type Actions = UpdateCards;

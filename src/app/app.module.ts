@@ -1,3 +1,4 @@
+import { youtubeReducer } from './redux/reducers/youtube.reducer';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,7 +21,9 @@ import { StoreModule } from '@ngrx/store';
     BrowserAnimationsModule,
     AppRoutingModule,
     AuthModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({
+      youtube: youtubeReducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
