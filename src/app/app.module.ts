@@ -20,7 +20,7 @@ import { StoreModule } from '@ngrx/store';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    AuthModule,
+    // AuthModule,
     StoreModule.forRoot({
       youtube: youtubeReducer
     })
