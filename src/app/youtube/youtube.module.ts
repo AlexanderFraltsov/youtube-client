@@ -11,7 +11,6 @@ import { SortCardsPipe } from './pipes/sort-cards.pipe';
 import { YoutubeRoutingModule } from './youtube-routing.module';
 import { SearchSettingsComponent } from './components/search-settings/search-settings.component';
 import { CardBigComponent } from './components/card-big/card-big.component';
-import { CreateCardComponent } from './components/create-card/create-card.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { MainComponent } from './pages/main/main.component';
@@ -21,7 +20,6 @@ import { DetailsComponent } from './pages/details/details.component';
   declarations: [
     SearchResultsComponent,
     SearchItemComponent,
-    CreateCardComponent,
     CardBigComponent,
     SearchSettingsComponent,
     FilterCardsPipe,
