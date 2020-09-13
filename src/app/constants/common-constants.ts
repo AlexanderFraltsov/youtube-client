@@ -19,6 +19,7 @@ const PASSWORD_MIN_LENGTH: number = 6;
 
 const MAIN_ROUTE: string = 'main';
 const AUTH_ROUTE: string = 'login';
+const ADMIN_ROUTE: string = 'admin';
 const ERROR_ROUTE: string = '404';
 
 const QUERY_MIN_LENGTH: number = 3;
@@ -35,6 +36,7 @@ export {
   MAIN_ROUTE,
   AUTH_ROUTE,
   ERROR_ROUTE,
+  ADMIN_ROUTE,
   YOUTUBE_SEARCH_PATH,
   YOUTUBE_VIDEOS_PATH,
   SEARCH_RESULTS,

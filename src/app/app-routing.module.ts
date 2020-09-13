@@ -2,13 +2,18 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ErrorComponent } from './core/components/error/error.component';
-import { AUTH_ROUTE, MAIN_ROUTE, ERROR_ROUTE } from './constants/common-constants';
+import { AUTH_ROUTE, ADMIN_ROUTE, MAIN_ROUTE, ERROR_ROUTE } from './constants/common-constants';
 
 const routes: Routes = [
   { path: '', redirectTo: AUTH_ROUTE, pathMatch: 'full' },
   {
     path: AUTH_ROUTE,
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: ADMIN_ROUTE,
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canLoad: [AuthGuard]
   },
   {
     path: MAIN_ROUTE,
