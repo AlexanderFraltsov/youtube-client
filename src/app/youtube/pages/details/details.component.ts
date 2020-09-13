@@ -1,7 +1,8 @@
-import { Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ISearchItem } from './../../models/search-item.model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+
+import { ISearchItem } from '../../../shared/models/search-item.model';
 import { MAIN_ROUTE } from 'src/app/constants/common-constants';
 import { YoutubeResponseService } from '../../services/youtube-response.service';
 

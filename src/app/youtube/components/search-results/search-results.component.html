@@ -1,5 +1,5 @@
 <div
-  *ngFor="let card of cards |
+  *ngFor="let card of cards$ | async |
     filterCards: youtubeService.filterString |
     sortCards: youtubeService.sortOptions"
   fxFlex="25"

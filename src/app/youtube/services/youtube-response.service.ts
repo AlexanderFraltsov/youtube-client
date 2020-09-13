@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
-
-import { IVideoResponse } from './../models/video-response.model';
-import { ISearchItem } from './../models/search-item.model';
-import { ISearchResponse } from '../models/search-response.model';
-
 import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
-import { SEARCH_RESULTS, YOUTUBE_SEARCH_PATH, YOUTUBE_VIDEOS_PATH } from '../../constants/common-constants';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { mergeMap, catchError, map  } from 'rxjs/operators';
+
+import { ISearchResponse } from '../../shared/models/search-response.model';
+import { IVideoResponse } from '../../shared/models/video-response.model';
+import { ISearchItem } from '../../shared/models/search-item.model';
+import {
+  SEARCH_RESULTS,
+  YOUTUBE_SEARCH_PATH,
+  YOUTUBE_VIDEOS_PATH
+} from '../../constants/common-constants';
 
 @Injectable({providedIn: 'root'})
 export class YoutubeResponseService {

@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ISortOptions } from './../models/sort-options.model';
-import { ISearchItem } from './../models/search-item.model';
+import { ISearchItem } from '../../shared/models/search-item.model';
+import { ISortOptions } from '../models/sort-options.model';
 
 @Pipe({
   name: 'sortCards'
@@ -21,6 +21,8 @@ export class SortCardsPipe implements PipeTransform {
     const func: ( item: ISearchItem ) => number =
       (sortOptions.sort === 'date') ? this.getDate : this.getViews;
 
-    return items.sort((el1, el2) => (func(el1) - func(el2)) * directionModificator);
+    return [...items].sort((el1, el2) => {
+      return (func(el1) - func(el2)) * directionModificator;
+    });
   }
 }
