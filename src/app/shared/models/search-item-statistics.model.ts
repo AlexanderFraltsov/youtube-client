@@ -3,5 +3,5 @@ export interface ISearchItemStatistics {
   likeCount: string;
   dislikeCount: string;
   favoriteCount?: string;
-  commentCount: string;
+  commentCount?: string;
 }

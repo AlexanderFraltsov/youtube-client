@@ -12,6 +12,6 @@ export class CardBigComponent {
   constructor( public router: Router ) {}
 
   public goBack(): void {
-    this.router.navigate(['main']);
+    this.router.navigate(['']);
   }
 }

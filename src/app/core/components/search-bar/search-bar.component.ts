@@ -7,6 +7,7 @@ import { CommonService } from '../../services/common.service';
 import { YoutubeResponseService } from 'src/app/youtube/services/youtube-response.service';
 import { LoginService } from '../../../auth/services/login.service';
 import { QUERY_MIN_LENGTH } from 'src/app/constants/common-constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -22,7 +23,8 @@ export class SearchBarComponent implements OnInit, OnDestroy {
   constructor(
     public commonService: CommonService,
     private loginService: LoginService,
-    private youtubeResponseService: YoutubeResponseService
+    private youtubeResponseService: YoutubeResponseService,
+    public router: Router
   ) {}
 
   public ngOnInit(): void {
@@ -44,6 +46,10 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     this.loginService.isLogin.subscribe({
       next: (res) => this.isAuth = res
     });
+  }
+
+  public goToMain(): void {
+    this.router.navigate(['']);
   }
 
   public ngOnDestroy(): void {

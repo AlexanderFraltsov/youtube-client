@@ -1,6 +1,9 @@
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+
+import { IState } from 'src/app/redux/state.model';
+import { AddCard } from '../../../redux/actions/custom.actions';
 
 @Component({
   selector: 'app-admin-page',
@@ -9,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPageComponent implements OnInit {
   public adminForm: FormGroup;
-  constructor() { }
+  constructor(private store: Store<IState>) { }
 
   public ngOnInit(): void {
     this.adminForm = new FormGroup({
@@ -29,6 +32,9 @@ export class AdminPageComponent implements OnInit {
   }
 
   public submit(): void {
-    console.log({...this.adminForm.value, publishedAt: new Date().toUTCString()});
+    this.store.dispatch(new AddCard({
+      ...this.adminForm.value,
+      publishedAt: new Date().toUTCString()
+    }));
   }
 }

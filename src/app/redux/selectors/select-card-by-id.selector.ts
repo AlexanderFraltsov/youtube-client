@@ -1,14 +1,13 @@
+import { selectAllCards } from './select-all-cards.selector';
 import { getRouterState } from './get-router-state.selector';
-import { selectYoutubeCards } from './select-youtube.cards.selector';
 import { createSelector, MemoizedSelector } from '@ngrx/store';
 import { ISearchItem } from 'src/app/shared/models/search-item.model';
-
 
 export const selectCardById: MemoizedSelector<
   unknown,
   ISearchItem,
   unknown> = createSelector(
-  selectYoutubeCards,
+  selectAllCards,
   getRouterState,
   (cards, router) => {
     try {
@@ -17,6 +16,5 @@ export const selectCardById: MemoizedSelector<
     } catch {
       return undefined;
     }
-
   }
 );

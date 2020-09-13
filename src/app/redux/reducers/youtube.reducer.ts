@@ -1,8 +1,9 @@
-import { Actions } from './../actions/actions.model';
+import { actionYoutubeUpdateCards } from '../actions/actions';
+import { Actions } from '../actions/actions.model';
 import { StateYoutube } from '../state.model';
 
 const youtubeInitialState: StateYoutube = {
-  cards: null
+  cards: []
 };
 
 export const youtubeReducer: (
@@ -12,7 +13,7 @@ export const youtubeReducer: (
   state: StateYoutube = youtubeInitialState,
   action: Actions) => {
   switch (action.type) {
-    case '[Youtube Module] Update cards': {
+    case actionYoutubeUpdateCards: {
       return {
         ...state,
         cards: action.payload

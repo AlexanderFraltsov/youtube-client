@@ -1,7 +1,8 @@
+import { ICustomCard } from '../shared/models/custom-card.model';
 import { ISearchItem } from '../shared/models/search-item.model';
 
 export interface StateCustom {
-  cards: null;
+  cards: ICustomCard[];
 }
 
 export interface StateYoutube {

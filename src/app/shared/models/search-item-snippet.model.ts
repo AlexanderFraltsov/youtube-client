@@ -2,12 +2,12 @@ import { ISearchItemThumbnail } from './search-item-thumbnail.model';
 
 export interface ISearchItemSnippet {
   categoryId?: string;
-  channelId: string;
-  channelTitle: string;
+  channelId?: string;
+  channelTitle?: string;
   defaultAudioLanguage?: string;
   defaultLanguage?: string;
   description: string;
-  liveBroadcastContent: string;
+  liveBroadcastContent?: string;
   localized?: {
     title: string;
     description: string;

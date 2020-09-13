@@ -6,6 +6,7 @@ import {
   Route
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AUTH_ROUTE } from 'src/app/constants/common-constants';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,8 @@ export class AuthGuard implements CanLoad {
     if (localStorage.getItem('user')) {
       return true;
     } else {
-      this.router.navigate(['']);
+      this.router.navigate([AUTH_ROUTE]);
+      return false;
     }
   }
 }

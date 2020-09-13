@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { youtubeReducer } from './redux/reducers/youtube.reducer';
+import { customReducer } from './redux/reducers/custom.reducer';
 
 import { AppComponent } from './app.component';
 
@@ -22,6 +23,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     StoreModule.forRoot({
       youtube: youtubeReducer,
+      custom: customReducer,
       router: routerReducer
     }),
     StoreRouterConnectingModule.forRoot()
