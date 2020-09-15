@@ -28,7 +28,12 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.idSubscription = this.route.params.subscribe( params => {
       this.id = params.id;
     });
-    this.card$ = this.store.select(selectCardById(this.id));
+    this.card$ = this.store.select(selectCardById(this.id)).pipe(map((card) => {
+      if (!card) {
+        this.router.navigate([MAIN_ROUTE]);
+      }
+      return card;
+    }));
   }
 
   public ngOnDestroy(): void {
