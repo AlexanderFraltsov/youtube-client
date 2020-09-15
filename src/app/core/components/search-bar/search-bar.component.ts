@@ -1,13 +1,13 @@
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter, debounceTime } from 'rxjs/operators';
 
 import { CommonService } from '../../services/common.service';
 import { YoutubeResponseService } from 'src/app/youtube/services/youtube-response.service';
 import { LoginService } from '../../../auth/services/login.service';
-import { QUERY_MIN_LENGTH } from 'src/app/constants/common-constants';
-import { Router } from '@angular/router';
+import { QUERY_MIN_LENGTH, MAIN_ROUTE } from 'src/app/constants/common-constants';
 
 @Component({
   selector: 'app-search-bar',
@@ -49,10 +49,11 @@ export class SearchBarComponent implements OnInit, OnDestroy {
   }
 
   public goToMain(): void {
-    this.router.navigate(['']);
+    this.router.navigate([MAIN_ROUTE]);
   }
 
   public ngOnDestroy(): void {
     this.searchString.unsubscribe();
+    this.loginService.isLogin.unsubscribe();
   }
 }

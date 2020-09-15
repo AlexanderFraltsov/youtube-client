@@ -1,6 +1,7 @@
-import { ICardRender } from '../../../shared/models/card-render.model';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { MAIN_ROUTE } from 'src/app/constants/common-constants';
+import { ICardRender } from '../../../shared/models/card-render.model';
 
 @Component({
   selector: 'app-card-big',
@@ -12,6 +13,6 @@ export class CardBigComponent {
   constructor( public router: Router ) {}
 
   public goBack(): void {
-    this.router.navigate(['']);
+    this.router.navigate([MAIN_ROUTE]);
   }
 }

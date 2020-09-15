@@ -1,17 +1,15 @@
+import { IState } from 'src/app/redux/state.model';
 import { selectAllCards } from './select-all-cards.selector';
-import { getRouterState } from './get-router-state.selector';
 import { createSelector, MemoizedSelector } from '@ngrx/store';
 import { ISearchItem } from 'src/app/shared/models/search-item.model';
 
-export const selectCardById: MemoizedSelector<
-  unknown,
-  ISearchItem,
-  unknown> = createSelector(
+export const selectCardById: (id: string) => MemoizedSelector<
+  IState,
+  ISearchItem
+> = (id: string) => createSelector(
   selectAllCards,
-  getRouterState,
-  (cards, router) => {
+  (cards) => {
     try {
-      const { id } = router.state.root.firstChild.firstChild.params;
       return cards.find(card => card.id === id);
     } catch {
       return undefined;

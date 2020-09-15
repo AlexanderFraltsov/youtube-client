@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { IUser } from '../../shared/models/user.model';
-import { USERNAME_PLACEHOLDER, MAIN_ROUTE } from 'src/app/constants/common-constants';
+import { USERNAME_PLACEHOLDER, MAIN_ROUTE, AUTH_ROUTE } from 'src/app/constants/common-constants';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -22,7 +22,7 @@ export class LoginService {
   public logout(): void {
     this.isLogin.next(false);
     localStorage.clear();
-    this.router.navigate(['']);
+    this.router.navigate([AUTH_ROUTE]);
   }
 
   public getLogin(): string {

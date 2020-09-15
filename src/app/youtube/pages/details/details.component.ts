@@ -1,32 +1,37 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import { MAIN_ROUTE } from 'src/app/constants/common-constants';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, of } from 'rxjs';
 
 import { selectCardById } from '../../../redux/selectors';
 import { IState } from '../../../redux/state.model';
 import { ISearchItem } from '../../../shared/models/search-item.model';
-import { MAIN_ROUTE } from '../../../constants/common-constants';
+import { catchError, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent implements OnDestroy {
+export class DetailsComponent implements OnInit, OnDestroy {
   public card$: Observable<ISearchItem>;
-  public subscription: Subscription;
+  public id: string;
+  public idSubscription: Subscription;
 
-  constructor(private router: Router, private store: Store<IState>) {
-    this.card$ = this.store.select(selectCardById);
-    this.subscription = this.card$.subscribe(card => {
-      if (!card) {
-        this.router.navigate([MAIN_ROUTE]);
-      }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private store: Store<IState>) {}
+
+  public ngOnInit(): void {
+    this.idSubscription = this.route.params.subscribe( params => {
+      this.id = params.id;
     });
+    this.card$ = this.store.select(selectCardById(this.id));
   }
 
   public ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.idSubscription.unsubscribe();
   }
 }
