@@ -29,17 +29,8 @@
       <p class="description--text">{{card.description}}</p>
     </div>
     <div class="card--statistics" fxLayout="row"  fxLayoutAlign="center">
-      <div class="statistics--item">
-        <mat-icon>visibility</mat-icon>{{card.viewCount}}
-      </div>
-      <div class="statistics--item">
-        <mat-icon>thumb_up</mat-icon>{{card.likeCount}}
-      </div>
-      <div class="statistics--item">
-        <mat-icon>thumb_down</mat-icon>{{card.dislikeCount}}
-      </div>
-      <div class="statistics--item">
-        <mat-icon>comment</mat-icon>{{card.commentCount}}
+      <div *ngFor="let item of statistics" class="statistics--item">
+        <mat-icon>{{item.icon}}</mat-icon>{{card[item.name]}}
       </div>
     </div>
   </div>
