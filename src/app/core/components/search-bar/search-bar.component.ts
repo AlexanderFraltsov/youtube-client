@@ -43,7 +43,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
         }
       );
 
-    this.loginService.isLogin.subscribe({
+    this.loginService.isLogin$.subscribe({
       next: (res) => this.isAuth = res
     });
   }
@@ -54,6 +54,6 @@ export class SearchBarComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
     this.searchString.unsubscribe();
-    this.loginService.isLogin.unsubscribe();
+    this.loginService.isLogin$.unsubscribe();
   }
 }
