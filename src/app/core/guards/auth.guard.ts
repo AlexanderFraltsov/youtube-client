@@ -5,7 +5,7 @@ import {
   UrlSegment,
   Route
 } from '@angular/router';
-import { Observable } from 'rxjs';
+
 import { AUTH_ROUTE } from 'src/app/constants/common-constants';
 
 @Injectable({
@@ -20,7 +20,7 @@ export class AuthGuard implements CanLoad {
   public canLoad(
     route: Route,
     segments: UrlSegment[]
-  ): Observable<boolean> | Promise<boolean> | boolean {
+  ): boolean {
     if (localStorage.getItem('user')) {
       return true;
     } else {
