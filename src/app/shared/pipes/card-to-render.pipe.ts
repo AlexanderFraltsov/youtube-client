@@ -10,7 +10,7 @@ import { TIME_PERIODS, MS_IN_DAY } from 'src/app/constants/common-constants';
 export class CardToRenderPipe implements PipeTransform {
   public transform(item: ISearchItem): ICardRender {
     if (!item) {
-      return undefined;
+      return;
     }
     const { id } = item;
     const { publishedAt, description, title, thumbnails } = item.snippet;
