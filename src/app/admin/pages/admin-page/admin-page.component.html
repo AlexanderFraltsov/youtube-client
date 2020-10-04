@@ -10,21 +10,9 @@
     (ngSubmit)="submit()"
   >
     <mat-card-title>Create card</mat-card-title>
-    <mat-form-field action="">
-      <mat-label>Title</mat-label>
-      <input matInput type="text" formControlName="title">
-    </mat-form-field>
-    <mat-form-field action="">
-      <mat-label>Description</mat-label>
-      <input matInput type="text" formControlName="description">
-    </mat-form-field>
-    <mat-form-field action="">
-      <mat-label>Link to image</mat-label>
-      <input matInput type="text" formControlName="image">
-    </mat-form-field>
-    <mat-form-field action="">
-      <mat-label>Link to video</mat-label>
-      <input matInput type="text" formControlName="link">
+    <mat-form-field *ngFor="let elem of adminInputs" action="">
+      <mat-label>{{elem.textContent}}</mat-label>
+      <input matInput type="text" formControlName={{elem.formControlName}}>
     </mat-form-field>
     <button
       mat-raised-button

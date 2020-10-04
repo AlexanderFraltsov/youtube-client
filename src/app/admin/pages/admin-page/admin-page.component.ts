@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, AbstractControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
+import { ADMIN_PAGE_FORM_CONTROLS, ADMIN_PAGE_INPUTS } from '../../constants/constants';
 import { IState } from 'src/app/redux/state.model';
+import { IInput } from '../../models/input.model';
 import { AddCard } from '../../../redux/actions/custom.actions';
 
 @Component({
@@ -12,23 +14,13 @@ import { AddCard } from '../../../redux/actions/custom.actions';
 })
 export class AdminPageComponent implements OnInit {
   public adminForm: FormGroup;
-  constructor(private store: Store<IState>) { }
+  public adminInputs: IInput[] = ADMIN_PAGE_INPUTS;
+  public formControls: {[key: string]: AbstractControl} = ADMIN_PAGE_FORM_CONTROLS;
+
+  constructor(private store: Store<IState>) {}
 
   public ngOnInit(): void {
-    this.adminForm = new FormGroup({
-      title: new FormControl('', [
-        Validators.required
-      ]),
-      description: new FormControl('', [
-        Validators.required,
-      ]),
-      image: new FormControl('', [
-        Validators.required
-      ]),
-      link: new FormControl('', [
-        Validators.required
-      ])
-    });
+    this.adminForm = new FormGroup(this.formControls);
   }
 
   public submit(): void {
