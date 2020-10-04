@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CommonService {
+export class SearchOptionsService {
 
-  public isLogin: Subject<boolean> = new Subject();
   public isSearchOptionsOpen: boolean = false;
 
   constructor() {}

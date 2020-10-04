@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { filter, debounceTime } from 'rxjs/operators';
 
 import { QUERY_MIN_LENGTH, MAIN_ROUTE, SEARCH_DEBOUNCE_TIME_MS, SEARCH_STRING_FORM_CONTROL } from 'src/app/constants/common-constants';
-import { CommonService } from '../../services/common.service';
+import { SearchOptionsService } from '../../services/searchOptions.service';
 import { YoutubeResponseService } from 'src/app/youtube/services/youtube-response.service';
 import { LoginService } from '../../../auth/services/login.service';
 
@@ -20,7 +20,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
   public searchStringSubscription: Subscription;
 
   constructor(
-    public commonService: CommonService,
+    public searchOptionsService: SearchOptionsService,
     public loginService: LoginService,
     private youtubeResponseService: YoutubeResponseService,
     public router: Router

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonService } from 'src/app/core/services/common.service';
+import { SearchOptionsService } from 'src/app/core/services/searchOptions.service';
 
 @Component({
   selector: 'app-main',
@@ -7,5 +7,5 @@ import { CommonService } from 'src/app/core/services/common.service';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  constructor( public commonService: CommonService ) {}
+  constructor( public searchOptionsService: SearchOptionsService ) {}
 }
