@@ -1,15 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { delay } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
-import { Store } from '@ngrx/store';
 
-import { selectAllCards } from '../../../redux/selectors/select-all-cards.selector';
-import { YoutubeResponseService } from '../../services/youtube-response.service';
-import { YoutubeService } from '../../services/youtube.service';
+import { QUERY_MIN_LENGTH, SEARCH_DELAY_MS } from '../../../constants/common-constants';
 import { ISearchItem } from '../../../shared/models/search-item.model';
+import { YoutubeService } from '../../services/youtube.service';
+import { YoutubeResponseService } from '../../services/youtube-response.service';
 import { IState } from '../../../redux/state.model';
 import { UpdateCards } from '../../../redux/actions/youtube.actions';
-import { QUERY_MIN_LENGTH } from 'src/app/constants/common-constants';
+import { selectAllCards } from '../../../redux/selectors/select-all-cards.selector';
 
 @Component({
   selector: 'app-search-results',
@@ -45,7 +45,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this.youtubeResponseService
         .getSearchItems(query)
-        .pipe(delay(500))
+        .pipe(delay(SEARCH_DELAY_MS))
         .subscribe(data => this.store.dispatch(new UpdateCards((data))))
     );
   }

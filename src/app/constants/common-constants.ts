@@ -1,12 +1,12 @@
 const MS_IN_DAY: number = 1000 * 3600 * 24;
-const COLORS: {[key: string]: string} = {
-  RED: 'red',
-  GREEN: 'green',
-  BLUE: 'blue'
-};
+enum COLORS {
+  RED = 'red',
+  GREEN = 'green',
+  BLUE = 'blue'
+}
 
 const TIME_PERIODS: {
-  [key: string]: { DAYS: number, COLOR: string }
+  [key: string]: { DAYS: number, COLOR: COLORS }
 } = {
   SHORT: { DAYS: 7, COLOR: COLORS.BLUE},
   MEDIUM: { DAYS: 30, COLOR: COLORS.GREEN},
@@ -24,11 +24,13 @@ const ERROR_ROUTE: string = '404';
 
 const QUERY_MIN_LENGTH: number = 3;
 const SEARCH_RESULTS: number = 15;
+const SEARCH_DELAY_MS: number = 500;
 const YOUTUBE_SEARCH_PATH: string = 'search';
 const YOUTUBE_VIDEOS_PATH: string = 'videos';
 
 export {
   MS_IN_DAY,
+  SEARCH_DELAY_MS,
   TIME_PERIODS,
   USERNAME_PLACEHOLDER,
   LOGIN_MIN_LENGTH,
