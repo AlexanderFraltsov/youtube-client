@@ -16,7 +16,7 @@
       placeholder="grumpy cat"
       type="search"
       formControlName='searchString'
-      [readonly]="!isAuth">
+      [readonly]="!(loginService.isLogin$ | async)">
   </mat-form-field>
   <button
     color="primary"

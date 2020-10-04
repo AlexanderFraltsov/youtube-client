@@ -23,14 +23,18 @@ const ADMIN_ROUTE: string = 'admin';
 const ERROR_ROUTE: string = '404';
 
 const QUERY_MIN_LENGTH: number = 3;
+const SEARCH_STRING_FORM_CONTROL: string = 'searchString';
 const SEARCH_RESULTS: number = 15;
 const SEARCH_DELAY_MS: number = 500;
+const SEARCH_DEBOUNCE_TIME_MS: number = 1000;
 const YOUTUBE_SEARCH_PATH: string = 'search';
 const YOUTUBE_VIDEOS_PATH: string = 'videos';
 
 export {
   MS_IN_DAY,
   SEARCH_DELAY_MS,
+  SEARCH_DEBOUNCE_TIME_MS,
+  SEARCH_STRING_FORM_CONTROL,
   TIME_PERIODS,
   USERNAME_PLACEHOLDER,
   LOGIN_MIN_LENGTH,

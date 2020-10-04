@@ -1,13 +1,13 @@
-import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { filter, debounceTime } from 'rxjs/operators';
 
+import { QUERY_MIN_LENGTH, MAIN_ROUTE, SEARCH_DEBOUNCE_TIME_MS, SEARCH_STRING_FORM_CONTROL } from 'src/app/constants/common-constants';
 import { CommonService } from '../../services/common.service';
 import { YoutubeResponseService } from 'src/app/youtube/services/youtube-response.service';
 import { LoginService } from '../../../auth/services/login.service';
-import { QUERY_MIN_LENGTH, MAIN_ROUTE } from 'src/app/constants/common-constants';
 
 @Component({
   selector: 'app-search-bar',
@@ -17,35 +17,31 @@ import { QUERY_MIN_LENGTH, MAIN_ROUTE } from 'src/app/constants/common-constants
 export class SearchBarComponent implements OnInit, OnDestroy {
 
   public form: FormGroup;
-  public searchString: Subscription;
-  public isAuth: boolean;
+  public searchStringSubscription: Subscription;
 
   constructor(
     public commonService: CommonService,
-    private loginService: LoginService,
+    public loginService: LoginService,
     private youtubeResponseService: YoutubeResponseService,
     public router: Router
   ) {}
 
   public ngOnInit(): void {
     this.form = new FormGroup({
-      searchString: new FormControl('')
+      [SEARCH_STRING_FORM_CONTROL]: new FormControl('')
     });
 
-    this.searchString = this.form.get('searchString').valueChanges
+    this.searchStringSubscription = this.form
+      .get(SEARCH_STRING_FORM_CONTROL).valueChanges
       .pipe(
         filter(s => s.length >= QUERY_MIN_LENGTH),
-        debounceTime(1000)
+        debounceTime(SEARCH_DEBOUNCE_TIME_MS)
         )
       .subscribe(
         query => {
           this.youtubeResponseService.searchString.next(query);
         }
       );
-
-    this.loginService.isLogin$.subscribe({
-      next: (res) => this.isAuth = res
-    });
   }
 
   public goToMain(): void {
@@ -53,7 +49,6 @@ export class SearchBarComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.searchString.unsubscribe();
-    this.loginService.isLogin$.unsubscribe();
+    this.searchStringSubscription.unsubscribe();
   }
 }
