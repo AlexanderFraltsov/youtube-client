@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ISortOptions } from './../models/sort-options.model';
+import { ISortOptions, SORT_DIRECTIONS, SORT_TYPES } from './../models/sort-options.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,26 +12,26 @@ export class YoutubeService {
 
   constructor() { }
 
-  public sort(sortType: 'date' | 'views'): void {
+  public sort(sortType: SORT_TYPES): void {
     if (this.sortOptions === null
       || this.sortOptions.sort !== sortType) {
       this.sortOptions = {
         sort: sortType,
-        sortDirection: 'up'
+        sortDirection: SORT_DIRECTIONS.UP
       };
     } else {
       switch (this.sortOptions.sortDirection) {
-        case 'up': {
+        case SORT_DIRECTIONS.UP: {
           this.sortOptions = {
             ...this.sortOptions,
-            sortDirection: 'down'
+            sortDirection: SORT_DIRECTIONS.DOWN
           };
           break;
         }
-        case 'down': {
+        case SORT_DIRECTIONS.DOWN: {
           this.sortOptions = {
             ...this.sortOptions,
-            sortDirection: 'up'
+            sortDirection: SORT_DIRECTIONS.UP
           };
           break;
         }

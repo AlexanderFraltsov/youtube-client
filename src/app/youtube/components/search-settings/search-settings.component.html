@@ -6,17 +6,17 @@
   <div>Sorting by:</div>
   <button
     mat-button
-    (click) = "sort('date')"
+    (click) = "sort(DATE)"
   >date
-    <mat-icon *ngIf="sortType === 'date'">
+    <mat-icon *ngIf="sortType === DATE">
       {{sortDirectionIcon}}
     </mat-icon>
   </button>
   <button
     mat-button
-    (click) = "sort('views')"
+    (click) = "sort(VIEWS)"
   >count of views
-    <mat-icon *ngIf="sortType === 'views'">
+    <mat-icon *ngIf="sortType === VIEWS">
       {{sortDirectionIcon}}
     </mat-icon>
   </button>

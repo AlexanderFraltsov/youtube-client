@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
+import { SORT_TYPES } from '../../models/sort-options.model';
 import { YoutubeService } from '../../services/youtube.service';
 
 type DirectionIcon = 'arrow_drop_up' | 'arrow_drop_down';
-type SortType = 'date' | 'views';
 
 @Component({
   selector: 'app-search-settings',
@@ -12,10 +12,13 @@ type SortType = 'date' | 'views';
 export class SearchSettingsComponent {
 
   public sortDirectionIcon: DirectionIcon;
-  public sortType: SortType;
+  public sortType: SORT_TYPES;
+  public VIEWS: SORT_TYPES.VIEWS;
+  public DATE: SORT_TYPES.DATE;
+
   constructor( public youtubeService: YoutubeService ) { }
 
-  public sort(sortType: SortType): void {
+  public sort(sortType: SORT_TYPES): void {
     this.youtubeService.sort(sortType);
     if (this.youtubeService.sortOptions !== null) {
       this.sortType = this.youtubeService.sortOptions.sort;
