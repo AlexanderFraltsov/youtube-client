@@ -1,16 +1,18 @@
 const MS_IN_DAY: number = 1000 * 3600 * 24;
+
+enum PERIODS { SHORT = 'SHORT', MEDIUM = 'MEDIUM', LONG = 'LONG' };
 enum COLORS {
-  RED = 'red',
-  GREEN = 'green',
-  BLUE = 'blue'
+  SHORT = 'red',
+  MEDIUM = 'green',
+  LONG = 'blue'
 }
 
 const TIME_PERIODS: {
-  [key: string]: { DAYS: number, COLOR: COLORS }
+  [key in PERIODS]: { DAYS: number, COLOR: COLORS }
 } = {
-  SHORT: { DAYS: 7, COLOR: COLORS.BLUE},
-  MEDIUM: { DAYS: 30, COLOR: COLORS.GREEN},
-  LONG: { DAYS: 6 * 30, COLOR: COLORS.RED},
+  SHORT: { DAYS: 7, COLOR: COLORS.SHORT},
+  MEDIUM: { DAYS: 30, COLOR: COLORS.MEDIUM},
+  LONG: { DAYS: 6 * 30, COLOR: COLORS.LONG},
 };
 // tslint:disable: no-inferrable-types
 const USERNAME_PLACEHOLDER: string = 'Who are you?';
