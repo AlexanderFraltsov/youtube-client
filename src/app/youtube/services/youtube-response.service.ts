@@ -19,10 +19,6 @@ export class YoutubeResponseService {
 
   constructor(private http: HttpClient) { }
 
-  public getSearchItems(query: string): Observable<ISearchItem[]> {
-    return this.getList(query);
-  }
-
   public getList(searchText: string): Observable<ISearchItem[]> {
     const params: HttpParams = new HttpParams()
       .set('type', 'video')

@@ -44,7 +44,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   public getSearchItems(query: string): void {
     this.subscriptions.push(
       this.youtubeResponseService
-        .getSearchItems(query)
+        .getList(query)
         .pipe(delay(SEARCH_DELAY_MS))
         .subscribe(data => this.store.dispatch(new UpdateCards((data))))
     );
