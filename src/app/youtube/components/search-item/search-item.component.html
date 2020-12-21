@@ -5,7 +5,7 @@
       *ngFor="let elem of statistics"
       fxLayout="row-wrap"
       fxLayoutAlign="center center">
-      <mat-icon>{{elem.icon}}</mat-icon>{{item[elem.name]}}
+      <mat-icon>{{elem.icon}}</mat-icon>{{item[elem.name] | number}}
     </div>
   </mat-card-content>
   <mat-card-title>{{item.title}}</mat-card-title>

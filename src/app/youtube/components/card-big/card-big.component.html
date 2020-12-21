@@ -30,7 +30,7 @@
     </div>
     <div class="card--statistics" fxLayout="row"  fxLayoutAlign="center">
       <div *ngFor="let item of statistics" class="statistics--item">
-        <mat-icon>{{item.icon}}</mat-icon>{{card[item.name]}}
+        <mat-icon>{{item.icon}}</mat-icon>{{card[item.name] | number}}
       </div>
     </div>
   </div>
