@@ -1,0 +1,30 @@
+<form
+  fxLayout="row wrap"
+  fxLayoutWrap
+  fxLayoutGap=".5rem"
+  fxLayoutAlign="start center"
+  [formGroup]="form"
+>
+  <img src="./assets/logo.png" alt="logo" (click)="goToMain()">
+  <mat-form-field
+    fxFlex.gt-xs="50"
+    fxFlex.xs="100"
+  >
+    <mat-label>What do you want to find out?</mat-label>
+    <input
+      matInput
+      placeholder="grumpy cat"
+      type="search"
+      formControlName='searchString'
+      [readonly]="!(loginService.isLogin$ | async)">
+  </mat-form-field>
+  <button
+    color="primary"
+    type="button"
+    mat-raised-button
+    (click)="searchOptionsService.onSearchOptionsToggle()"
+  >
+    <mat-icon>tune</mat-icon>
+  </button>
+</form>
+

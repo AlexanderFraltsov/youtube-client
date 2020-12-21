@@ -1,0 +1,15 @@
+<mat-card [appCardColor]="item.borderColor">
+  <img mat-card-image [src]="item.image" [alt]="item.description">
+  <mat-card-content fxLayout="row-wrap" fxLayoutAlign="space-around">
+    <div
+      *ngFor="let elem of statistics"
+      fxLayout="row-wrap"
+      fxLayoutAlign="center center">
+      <mat-icon>{{elem.icon}}</mat-icon>{{item[elem.name] | number}}
+    </div>
+  </mat-card-content>
+  <mat-card-title>{{item.title}}</mat-card-title>
+  <mat-card-actions fxLayout="row-wrap" fxLayoutAlign="center center">
+    <button mat-raised-button color="primary" (click)="goToDetailedInfo(item.id)">more...</button>
+  </mat-card-actions>
+</mat-card>

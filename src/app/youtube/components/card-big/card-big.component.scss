@@ -1,0 +1,55 @@
+$media1: 959px;
+$media2: 1300px;
+$common-max_height: 400px;
+$common_second-max_height: 300px;
+$skinny_screen-max_width: 90vw;
+$stats-min_height: 50px;
+$description-max_height: $common-max_height / 2;
+$description-margin_bottom: 20px;
+$common_padding: 2rem;
+$info_padding: $common_padding / 2;
+$stats_item-padding: $common_padding / 4;
+
+
+%height-changer {
+  max-height: $common-max_height;
+  @media (max-width: $media2) { max-height: $common_second-max_height; }
+  @media (max-width: $media1) {
+    max-height: unset;
+    max-width: $skinny_screen-max_width;
+  }
+}
+
+.card {
+  padding: $common_padding;
+  &--image {
+    @extend %height-changer;
+  }
+  &--info {
+    padding: $info_padding;
+    @extend %height-changer;
+  }
+  &--title {
+    h3 {
+      font-weight: bold;
+    }
+    p {
+      opacity: 0.5;
+    }
+  }
+  &--statistics {
+    min-height: $stats-min_height;
+  }
+  &--description {
+    max-height: $description-max_height;
+    overflow: auto;
+    margin-bottom: $description-margin_bottom;
+    @media (max-width: $media1) { max-height: unset;}
+  }
+}
+
+.statistics--item {
+  display: flex;
+  align-items: center;
+  padding-right: $stats_item-padding;
+}
